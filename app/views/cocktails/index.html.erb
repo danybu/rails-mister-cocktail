@@ -1,9 +1,15 @@
 <h1>your cocktails are ready:</h1>
 
 <ul>
-<% @cocktails.each do |cocktail| %>
-<li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-<% end %>
-</ul>
+  <% @cocktails.each do |cocktail| %>
+  <li>
+    <%= cl_image_tag cocktail.photo.url(:thumbnail) %>
+    <%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+    <% end %>
+  </ul>
 
-<%= link_to "add some new cocktail joy", new_cocktail_path %>
+  <%= link_to "add some new cocktail joy", new_cocktail_path %>
+
+  <%= cl_image_tag("drunk_01",
+  width: 400, height: 300, crop: :fill) %>
+
